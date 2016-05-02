@@ -1,24 +1,157 @@
+<!-- vim:tw=1000 sw=2 
+-->
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Hello World!</title>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="photon-0.1.2-alpha/dist/css/photon.css">
 </head>
 <body>
+<div class="window">
+    <header class="toolbar toolbar-header">
+        <h1 class="title">Header</h1>
+
+        <div class="toolbar-actions">
+            <div class="btn-group">
+                <button class="btn btn-default">
+                    <span class="icon icon-home"></span>
+                </button>
+
+                <button class="btn btn-default">
+                    <span class="icon icon-folder"></span>
+                </button>
+
+                <button class="btn btn-default active">
+                    <span class="icon icon-cloud"></span>
+                </button>
+
+                <button class="btn btn-default">
+                    <span class="icon icon-popup"></span>
+                </button>
+
+                <button class="btn btn-default">
+                    <span class="icon icon-shuffle"></span>
+                </button>
+            </div>
+
+            <button class="btn btn-default">
+                <span class="icon icon-home icon-text"></span>
+                Filters
+            </button>
+
+            <button class="btn btn-default btn-dropdown pull-right">
+                <span class="icon icon-megaphone"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="window-content">
+        <div class="pane-group">
+            <!-- sidebar -->
+            <div class="pane pane-sm sidebar">
+                <nav class="nav-group">
+                    <h5 class="nav-group-title">Publications</h5>
+                    <a class="nav-group-item active">
+                        <span class="icon icon-doc-text"></span>
+                        Wojciech Koszek blog
+                    </a>
+
+                      <span class="nav-group-item">
+                        <span class="icon icon-doc-text"></span>
+                        Barely Usable
+                      </span>
+                </nav>
+            </div>
+
+            <!-- list -->
+            <div class="pane pane-sm">
+                <ul class="list-group">
+                    <li class="list-group-header">
+                        <input class="form-control" type="text" placeholder="Search for someone">
+                    </li>
+                    <li class="list-group-item">
+
+                        <!--<img class="img-circle media-object pull-left" src="/assets/img/avatar.jpg" width="32" height="32">-->
+                        <div class="media-body">
+                            <span class="icon icon-megaphone"></span>
+                            <strong>List item title</strong>
+                            <!--<p>Lorem ipsum dolor sit amet.</p>-->
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <!--<img class="img-circle media-object pull-left" src="/assets/img/avatar2.png" width="32" height="32">-->
+                        <div class="media-body">
+                            <strong>List item title</strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- editor -->
+            <div class="pane">
+
+            </div>
+
+            <!-- assets pane -->
+            <div class="pane pane-sm">
+                <ul class="list-group">
+                    <li class="list-group-header">
+                        <input class="form-control" type="text" placeholder="Search for someone">
+                    </li>
+                    <li class="list-group-item">
+                        <img class="img-circle media-object pull-left" src="/assets/img/avatar.jpg" width="32" height="32">
+                        <div class="media-body">
+                            <strong>List item title</strong>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <img class="img-circle media-object pull-left" src="/assets/img/avatar2.png" width="32" height="32">
+                        <div class="media-body">
+                            <strong>List item title</strong>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <footer class="toolbar toolbar-footer">
+        <h1 class="title">Footer</h1>
+        <div class="toolbar-actions">
+            <button class="btn btn-default">
+                Cancel
+            </button>
+
+            <button class="btn btn-primary pull-right">
+                Save
+            </button>
+        </div>
+    </footer>
+
+</div>
 </body>
+
+
 
 <script>
     // You can also require other files to run in this process
     require('./renderer.js')
 
- var fs = require('fs');
+    var fs = require('fs');
     fs.readdir("/", function(err, items) {
         console.log(items);
 
-    for (var i=0; i<items.length; i++) {
-	    console.log(items[i]);
-		}
-		});
+        for (var i=0; i<items.length; i++) {
+            console.log(items[i]);
+        }
+    });
 </script>
 
 
