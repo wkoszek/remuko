@@ -17,6 +17,28 @@
         }
     </style>
     <script src="ace-builds-1.2.3/src/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+//        // You can also require other files to run in this process
+//        require('./renderer.js')
+//
+//        var fs = require('fs');
+//        fs.readdir("/", function(err, items) {
+//            console.log(items);
+//
+//            for (var i=0; i<items.length; i++) {
+//                console.log(items[i]);
+//            }
+//        });
+        (function() {
+            $("#aaa").click(function () {
+                console.log("rmk-1");
+                //$("#rmk-1").css('visibility', 'hidden');
+            });
+        })();
+
+    </script>
 </head>
 <body>
     <div class="window">
@@ -25,20 +47,28 @@
 
             <div class="toolbar-actions">
                 <div class="btn-group">
-                    <button class="btn btn-default">
-                        <span class="icon icon-home"></span>
+                    <button class="btn btn-default" id="aaa">
+                        <!--<span class="icon icon-home"></span>-->
+                        1
+                    </button>
+                    <script>            $( "#aaa" ).click(function () {
+                        console.log("rmk-1");
+                        //$("#rmk-1").css('visibility', 'hidden');
+                    });</script>
+
+                    <button class="btn btn-default" onclick="rmk_buttons()" id="rmk-button-2">
+                        <!--<span class="icon icon-folder"></span>-->
+                        2
                     </button>
 
-                    <button class="btn btn-default">
-                        <span class="icon icon-folder"></span>
+                    <button class="btn btn-default active" onclick="rmk_buttons()" id="rmk-button-3">
+                        <!--<span class="icon icon-cloud"></span>-->
+                        3
                     </button>
 
-                    <button class="btn btn-default active">
-                        <span class="icon icon-cloud"></span>
-                    </button>
-
-                    <button class="btn btn-default">
-                        <span class="icon icon-popup"></span>
+                    <button class="btn btn-default" onclick="rmk_buttons()" id="rmk-button-4">
+                        <!--<span class="icon icon-popup"></span>-->
+                        4
                     </button>
 
                     <button class="btn btn-default">
@@ -63,7 +93,7 @@
         <div class="window-content">
             <div class="pane-group">
                 <!-- sidebar -->
-                <div class="pane pane-sm sidebar">
+                <div class="pane pane-sm sidebar" id="rmk-1">
                     <nav class="nav-group">
                         <h5 class="nav-group-title">Publications</h5>
                         <a class="nav-group-item active">
@@ -79,31 +109,31 @@
                 </div>
 
                 <!-- list -->
-                <div class="pane pane-sm">
+                <div class="pane pane-sm" id="rmk-2">
                     <ul class="list-group">
                         <li class="list-group-header">
                             <input class="form-control" type="text" placeholder="Search for someone">
                         </li>
                         <li class="list-group-item">
                             <div class="media-body">
-                                <strong>List item title</strong>
+                                <span>List item title</span>
                             </div>
                         </li>
                         <li class="list-group-item">
                             <div class="media-body">
-                                <strong>List item title</strong>
+                                <span>List item title</span>
                             </div>
                         </li>
                         <li class="list-group-item">
                             <div class="media-body">
-                                <strong>List item title</strong>
+                                <span>List item title</span>
                             </div>
                         </li>
                     </ul>
                 </div>
 
                 <!-- editor -->
-                <div class="pane">
+                <div class="pane" id="rmk-3">
                     <div id="editor">
 
                     </div>
@@ -121,7 +151,7 @@
                 <!--</div>-->
 
                 <!-- assets pane -->
-                <div class="pane pane-one-fourth">
+                <div class="pane pane-one-fourth" id="rmk-4">
                     <form>
                         <div class="form-group">
                             <label><b>Title</b></label>
@@ -287,19 +317,7 @@
 
 
 
-<script>
-    // You can also require other files to run in this process
-    require('./renderer.js')
 
-    var fs = require('fs');
-    fs.readdir("/", function(err, items) {
-        console.log(items);
-
-        for (var i=0; i<items.length; i++) {
-            console.log(items[i]);
-        }
-    });
-</script>
 
 
 </html>
