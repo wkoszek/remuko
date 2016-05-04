@@ -17,28 +17,7 @@
         }
     </style>
     <script src="ace-builds-1.2.3/src/ace.js" type="text/javascript" charset="utf-8"></script>
-    <script src="jquery/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
 
-    <script>
-//        // You can also require other files to run in this process
-//        require('./renderer.js')
-//
-//        var fs = require('fs');
-//        fs.readdir("/", function(err, items) {
-//            console.log(items);
-//
-//            for (var i=0; i<items.length; i++) {
-//                console.log(items[i]);
-//            }
-//        });
-        (function() {
-            $("#aaa").click(function () {
-                console.log("rmk-1");
-                //$("#rmk-1").css('visibility', 'hidden');
-            });
-        })();
-
-    </script>
 </head>
 <body>
     <div class="window">
@@ -47,32 +26,24 @@
 
             <div class="toolbar-actions">
                 <div class="btn-group">
-                    <button class="btn btn-default" id="aaa">
+                    <button class="btn btn-default" id="rmk-button-1">
                         <!--<span class="icon icon-home"></span>-->
                         1
                     </button>
-                    <script>            $( "#aaa" ).click(function () {
-                        console.log("rmk-1");
-                        //$("#rmk-1").css('visibility', 'hidden');
-                    });</script>
 
-                    <button class="btn btn-default" onclick="rmk_buttons()" id="rmk-button-2">
+                    <button class="btn btn-default" id="rmk-button-2">
                         <!--<span class="icon icon-folder"></span>-->
                         2
                     </button>
 
-                    <button class="btn btn-default active" onclick="rmk_buttons()" id="rmk-button-3">
+                    <button class="btn btn-default active" id="rmk-button-3">
                         <!--<span class="icon icon-cloud"></span>-->
                         3
                     </button>
 
-                    <button class="btn btn-default" onclick="rmk_buttons()" id="rmk-button-4">
-                        <!--<span class="icon icon-popup"></span>-->
+                    <button class="btn btn-default" id="rmk-button-4">
+                        <!--<span class="icon icon-folder"></span>-->
                         4
-                    </button>
-
-                    <button class="btn btn-default">
-                        <span class="icon icon-shuffle"></span>
                     </button>
                 </div>
 
@@ -146,10 +117,6 @@
                 </div>
 
 
-                <!--<div class="pane">-->
-
-                <!--</div>-->
-
                 <!-- assets pane -->
                 <div class="pane pane-one-fourth" id="rmk-4">
                     <form>
@@ -170,8 +137,6 @@
                         <label>Description</label>
                         <textarea class="form-control" rows="3"></textarea>
                     </div>
-
-
 
                     <strong>Tags</strong><br>
                     <span style="background-color: black; color: white; border-radius: 6px;">
@@ -204,7 +169,6 @@
                         <span class="icon icon-plus-circled"></span>
                         &nbsp;
                     </span>
-
 
 
                     <!--<form>-->
@@ -315,7 +279,25 @@
     </div>
 </body>
 
+<script>
+    window.$ = window.jQuery = require('./jquery/jquery-2.2.3.min.js');
 
+    (function() {
+        function btn_pressed(btn_idx) {
+            return function(){
+                var rmk_pane = $("#rmk-" + btn_idx);
+                console.log(rmk_pane);
+                rmk_pane.toggle();
+            }
+        }
+
+        for (var btn_idx = 0; btn_idx <= 4; btn_idx++) {
+            var name = "#rmk-button-" + btn_idx;
+            $(name).click(btn_pressed(btn_idx));
+        }
+    })();
+
+</script>
 
 
 
